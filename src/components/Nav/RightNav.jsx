@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { menu } from "./menu";
+import { Link } from "react-router-dom";
 
 const Ul = styled.ul`
   list-style: none;
@@ -8,6 +10,9 @@ const Ul = styled.ul`
 
   li {
     padding: 18px 10px;
+    > Link {
+      color: #000;
+    }
   }
 
   @media (max-width: 768px) {
@@ -23,7 +28,7 @@ const Ul = styled.ul`
     transition: transform 0.3s ease-in-out;
 
     li {
-      color: #fff;
+      color: #000;
     }
   }
 `;
@@ -31,12 +36,13 @@ const Ul = styled.ul`
 const RightNav = ({ open }) => {
   return (
     <Ul open={open}>
-      <li>Home</li>
-      <li>Pizzas</li>
-      <li>Döner</li>
-      <li>Salate</li>
-      <li>Getränke</li>
-      <li>Contact us</li>
+      {menu.map((item, idx) => (
+        <li key={idx}>
+          <Link style={{ color: "tomato", fontSize: "26px" }} to={item.link}>
+            {item.title}
+          </Link>
+        </li>
+      ))}
     </Ul>
   );
 };

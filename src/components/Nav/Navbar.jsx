@@ -18,7 +18,11 @@ const Nav = styled.nav`
 const Navbar = () => {
   return (
     <Nav>
-      <div className="logo">Pizza-Pasha</div>
+      <img
+        src="https://cdn.svgporn.com/logos/atomic-icon.svg"
+        alt="logo"
+        width={50}
+      />
       <Burger />
     </Nav>
   );
